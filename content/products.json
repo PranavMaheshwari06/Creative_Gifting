@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "name": "Sample product 1",
+      "photo": "",
+      "price": null,
+      "starting_from": false,
+      "description": "Sample – replace with a real photo, name and price.",
+      "category": "Wedding",
+      "show": true
+    },
+    {
+      "name": "Sample product 2",
+      "photo": "",
+      "price": null,
+      "starting_from": false,
+      "description": "Sample – replace with a real photo, name and price.",
+      "category": "Shagun",
+      "show": true
+    },
+    {
+      "name": "Sample product 3",
+      "photo": "",
+      "price": null,
+      "starting_from": false,
+      "description": "Sample – replace with a real photo, name and price.",
+      "category": "Festive",
+      "show": true
+    },
+    {
+      "name": "Sample product 4",
+      "photo": "",
+      "price": null,
+      "starting_from": false,
+      "description": "Sample – replace with a real photo, name and price.",
+      "category": "Baby",
+      "show": true
+    },
+    {
+      "name": "Sample product 5",
+      "photo": "",
+      "price": null,
+      "starting_from": false,
+      "description": "Sample – replace with a real photo, name and price.",
+      "category": "Return gifts",
+      "show": true
+    },
+    {
+      "name": "Sample product 6",
+      "photo": "",
+      "price": null,
+      "starting_from": false,
+      "description": "Sample – replace with a real photo, name and price.",
+      "category": "Wedding",
+      "show": true
+    }
+  ]
+}
