@@ -14,14 +14,15 @@ using it.
 - [ ] Set up WhatsApp Business and Instagram (see GROW.md). These don't need to wait for the website.
 
 ## Step 1: Build the page (1 weekend)
-- [ ] `index.html`, `style.css`, `app.js`: one mobile-first page with these sections:
-      1. Header: logo, name, WhatsApp button
-      2. Banner photo and tagline
-      3. Products: photo, name, price, description, and an "Ask on WhatsApp" button that opens
-         WhatsApp with "Hi, I'm interested in <product name>" already typed
-      4. About Mom
-      5. Contact: Call, WhatsApp, Instagram, area, hours
-- [ ] `app.js` reads `content/settings.json` and `content/products.json` and shows only products
+- [x] `index.html`, `style.css`, `app.js`: one mobile-first page with these sections:
+      1. Announcement strip and header (name or logo, WhatsApp icon)
+      2. Round occasion tiles that filter the products
+      3. Banner with headline and "Order on WhatsApp"
+      4. Products: photo, name, price, description, and an "Ask on WhatsApp" button that opens
+         WhatsApp with the product name already typed
+      5. How to order (3 steps), About Mom, Contact (Call, WhatsApp, Instagram, area, hours)
+      6. Floating WhatsApp button
+- [x] `app.js` reads `content/settings.json` and `content/products.json` and shows only products
       where `show` is `true`
 - [ ] Resize photos to about 1200px wide before adding them, so the page loads fast
 - [ ] Page title, description and share image, so links look good on WhatsApp

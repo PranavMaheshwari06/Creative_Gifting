@@ -1,0 +1,236 @@
+/* Colours and sizes in one place: change these to restyle the whole site. */
+:root {
+  --cream: #FFF8F1;
+  --pink: #C2185B;
+  --pink-dark: #8E1043;
+  --plum: #6A1B9A;
+  --marigold: #F5A623;
+  --blush: #FDE2E7;
+  --lavender: #EDE4FB;
+  --mint: #DFF5EA;
+  --butter: #FFF1C9;
+  --text: #2B2326;
+  --muted: #6B5F63;
+  --white: #FFFFFF;
+  --radius: 16px;
+  --shadow: 0 6px 20px rgba(122, 22, 66, 0.10);
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
+  font: 400 16px/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+h1, h2, h3 { font-family: var(--serif); line-height: 1.2; margin: 0 0 .5em; }
+h2 { color: var(--pink); font-size: clamp(1.6rem, 5vw, 2.2rem); text-align: center; }
+h2::after { /* small gold underline */
+  content: ""; display: block; width: 48px; height: 3px; margin: .4em auto 0;
+  background: var(--marigold); border-radius: 3px;
+}
+svg { width: 1.25em; height: 1.25em; flex: none; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  min-height: 48px; padding: .7em 1.4em;
+  border-radius: 999px; border: 2px solid var(--pink);
+  background: var(--pink); color: var(--white);
+  font: 600 1rem var(--sans); text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn:active { transform: scale(.97); }
+.btn-outline { background: transparent; color: var(--pink); }
+.btn-light { background: var(--white); color: var(--pink); border-color: var(--white); }
+.btn-small { min-height: 44px; padding: .5em .6em; font-size: .8rem; width: 100%; white-space: nowrap; }
+
+/* ---------- 1. Announcement ---------- */
+.announcement {
+  background: linear-gradient(90deg, var(--pink), var(--plum));
+  color: var(--white); text-align: center;
+  font-size: .85rem; font-weight: 500; letter-spacing: .02em;
+  padding: .55em 1em;
+}
+
+/* ---------- 2. Header ---------- */
+.header {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .6rem 1rem; background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--blush);
+}
+.header-spacer { width: 44px; }
+.brand {
+  font: 700 1.4rem var(--serif); color: var(--pink); text-decoration: none;
+}
+.brand img { height: 44px; width: auto; }
+.icon-btn {
+  display: grid; place-items: center; width: 44px; height: 44px;
+  border-radius: 50%; color: #1E9E55; text-decoration: none;
+}
+.icon-btn svg { width: 28px; height: 28px; }
+
+main { max-width: 1120px; margin: 0 auto; }
+
+/* ---------- 3. Occasion tiles ---------- */
+.tiles {
+  display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 1.25rem 1rem .75rem; scrollbar-width: none;
+}
+.tiles::-webkit-scrollbar { display: none; }
+.tile {
+  flex: none; scroll-snap-align: start;
+  display: flex; flex-direction: column; align-items: center; gap: .4rem;
+  width: 76px; padding: 0; border: 0; background: none; cursor: pointer;
+  font: 500 .8rem var(--sans); color: var(--text); text-align: center;
+}
+.tile-icon {
+  display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%;
+  background: var(--tint); color: var(--pink);
+  border: 2px solid transparent;
+  transition: transform .25s cubic-bezier(.3, 1.6, .5, 1), border-color .2s;
+}
+.tile-icon svg { width: 30px; height: 30px; }
+.tile:hover .tile-icon { transform: translateY(-3px); }
+.tile:active .tile-icon { transform: scale(.9); }
+.tile[aria-pressed="true"] .tile-icon { border-color: var(--pink); transform: scale(1.06); }
+.tile[aria-pressed="true"] { font-weight: 600; color: var(--pink); }
+
+/* ---------- 4. Hero ---------- */
+.hero {
+  position: relative; overflow: hidden;
+  margin: .5rem 1rem 0; border-radius: 24px;
+  min-height: 340px; display: flex; align-items: flex-end;
+  color: var(--white);
+}
+.hero-media {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(245, 166, 35, .55), transparent 40%),
+    radial-gradient(circle at 10% 90%, rgba(253, 226, 231, .35), transparent 45%),
+    linear-gradient(135deg, var(--pink) 0%, var(--plum) 100%);
+  background-size: cover; background-position: center;
+  animation: slow-zoom 14s ease-out both;
+}
+.hero-media.has-photo::after { /* darkens the bottom of a photo so the text stays readable */
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(43, 15, 30, .75), rgba(43, 15, 30, .1) 60%);
+}
+.hero-media .hero-gift { /* big faint gift icon when there is no photo yet */
+  position: absolute; right: -20px; top: 10px; width: 210px; height: 210px;
+  color: rgba(255, 255, 255, .18);
+}
+.hero-text { position: relative; padding: 1.75rem 1.5rem; max-width: 560px; }
+.hero h1 { font-size: clamp(2rem, 7vw, 3.2rem); margin-bottom: .3em; }
+.hero p { margin: 0 0 1.25rem; opacity: .95; }
+@keyframes slow-zoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+
+/* ---------- Sections ---------- */
+.section { padding: 3rem 1rem 0; }
+
+/* ---------- 5. Product grid ---------- */
+.grid {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 720px) { .grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+@media (min-width: 1000px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+.card {
+  display: flex; flex-direction: column;
+  background: var(--white); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(122, 22, 66, .16); }
+.card-photo {
+  aspect-ratio: 1; overflow: hidden; background: var(--tint, var(--blush));
+  display: grid; place-items: center; color: var(--pink);
+}
+.card-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.card:hover .card-photo img { transform: scale(1.05); }
+.card-photo svg { width: 42%; height: 42%; opacity: .55; }
+.card-body { display: flex; flex-direction: column; gap: .3rem; padding: .8rem; flex: 1; }
+.card-tag {
+  align-self: flex-start; font-size: .7rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--plum);
+  background: var(--lavender); padding: .15em .6em; border-radius: 999px;
+}
+.card h3 { font-size: 1.05rem; margin: .1rem 0 0; }
+.card-price { font-weight: 600; color: var(--pink); }
+.card-desc { font-size: .85rem; color: var(--muted); margin: 0 0 .5rem; flex: 1; }
+.empty { grid-column: 1 / -1; text-align: center; color: var(--muted); }
+
+/* ---------- 6. How to order ---------- */
+.steps {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1rem;
+}
+@media (min-width: 720px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+.step {
+  background: var(--tint); border-radius: var(--radius);
+  padding: 1.25rem; text-align: center;
+}
+.step-num {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--white); color: var(--pink); font: 700 1.2rem var(--serif);
+  margin-bottom: .5rem; box-shadow: var(--shadow);
+}
+.step h3 { font-size: 1.15rem; color: var(--pink-dark); }
+.step p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+/* ---------- 7. About ---------- */
+.about { display: grid; gap: 1.5rem; align-items: center; text-align: center; }
+.about img { border-radius: var(--radius); box-shadow: var(--shadow); margin: 0 auto; max-height: 420px; }
+@media (min-width: 720px) {
+  .about:has(img:not([hidden])) { grid-template-columns: 1fr 1.3fr; text-align: left; }
+  .about:has(img:not([hidden])) h2::after { margin-left: 0; }
+}
+.about p { max-width: 640px; margin: 0 auto; }
+
+/* ---------- 8. Contact ---------- */
+.contact { text-align: center; }
+.contact-buttons { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+.contact-info { color: var(--muted); margin-top: 1.25rem; }
+
+.footer {
+  margin-top: 3.5rem; padding: 1.5rem 1rem 6rem;
+  background: var(--blush); text-align: center; font-size: .85rem; color: var(--muted);
+}
+.footer p { margin: 0; }
+
+/* ---------- 9. Floating WhatsApp ---------- */
+.wa-float {
+  position: fixed; right: 16px; bottom: 16px; z-index: 20;
+  display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%;
+  background: #25D366; color: var(--white); box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+  transition: transform .2s ease;
+}
+.wa-float:hover { transform: scale(1.08); }
+.wa-float svg { width: 32px; height: 32px; }
+.wa-float::before { /* one gentle ripple when the page opens */
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: #25D366; z-index: -1;
+  animation: ripple 1.6s ease-out .8s 2 both;
+}
+@keyframes ripple { from { transform: scale(1); opacity: .6; } to { transform: scale(1.8); opacity: 0; } }
+
+/* ---------- Fade-up on scroll (only when JavaScript is running) ---------- */
+.js .reveal { opacity: 0; }
+.js .reveal.in { opacity: 1; animation: fade-up .7s ease var(--delay, 0ms) backwards; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+/* People who turn off animations on their phone get a still page. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; }
+}

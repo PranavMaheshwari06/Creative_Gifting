@@ -18,9 +18,13 @@ Read README.md and PLAN.md before doing any work.
 - The developer is learning. Explain changes briefly in plain words.
 
 ## Look
-Warm and simple. Ivory background `#FAF6EF`, maroon `#5B1A2B` for headings and buttons, gold `#B8923A`
-for small accents only, text `#2A2320`. Fonts: Cormorant Garamond (headings) and DM Sans (body) from
-Google Fonts. Adjust the colours to match the logo once we have it.
+Bright and festive but tidy (inspired by confettigifts.in, thegiftstudio.com, thepackingcompany.in;
+borrow layout ideas only, never their logos, text or photos). All colours are variables at the top of
+`style.css`: cream background `#FFF8F1`, rani pink `#C2185B` (buttons, headings), plum `#6A1B9A`,
+marigold `#F5A623` (small accents only, not text), pastel tiles blush/lavender/mint/butter.
+Fonts: Playfair Display (headings) and Poppins (body) from Google Fonts. Rounded cards, pill buttons.
+Animations stay light (fade-up on scroll, hover lift, slow hero zoom) and use only transform/opacity,
+all switched off under `prefers-reduced-motion`.
 
 ## Test locally
 `python3 -m http.server` in the repo folder, then open http://localhost:8000.
