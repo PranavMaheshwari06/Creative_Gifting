@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "name": "[PLACEHOLDER: product name]",
+      "photo": "",
+      "price": 0,
+      "starting_from": true,
+      "description": "[PLACEHOLDER: one or two lines]",
+      "category": "Wedding",
+      "show": false
+    }
+  ]
+}
